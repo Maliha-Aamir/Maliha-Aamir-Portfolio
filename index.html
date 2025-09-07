@@ -228,6 +228,20 @@
       color: #cccccc;
     }
 
+    /* Default: desktop/laptop */
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+/* Mobile view: hide headings completely */
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+  }
+}
+
     .social-links a {
       margin: 0 10px;
       color: #ffffff;
@@ -378,3 +392,4 @@
   </script>
 </body>
 </html>
+
