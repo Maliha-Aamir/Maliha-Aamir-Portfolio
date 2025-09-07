@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maliha Aamir Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #0f0f0f;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Header */
+    header {
+      background: #0f0f0f;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 30px;
+      border-bottom: 2px solid #f1c40f;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h1 {
+      color: #f1c40f;
+      font-size: 20px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      color: #ffffff;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #f1c40f;
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: #f1c40f;
+      border-radius: 2px;
+    }
+
+    /* Mobile Nav */
+    .nav-links {
+      display: flex;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background: #1a1a1a;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        padding: 15px 0;
+        text-align: center;
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 20px;
+      text-align: center;
+      background: url('your-bg-image.jpg') center/cover no-repeat;
+      min-height: 80vh;
+    }
+
+    .hero .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+    }
+
+    .hero h2, .hero p, .hero .btn {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h2 {
+      font-size: 40px;
+      margin-bottom: 20px;
+      color: #ffffff;
+    }
+
+    .hero p {
+      max-width: 600px;
+      margin-bottom: 30px;
+      color: #cccccc;
+    }
+
+    .btn {
+      background: #f1c40f;
+      color: #0f0f0f;
+      padding: 12px 25px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      font-weight: bold;
+    }
+
+    .btn:hover {
+      background: #ffffff;
+      color: #0f0f0f;
+    }
+
+    section {
+      padding: 60px 30px;
+    }
+
+    section h2 {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #f1c40f;
+    }
+
+    .divider {
+      width: 80px;
+      height: 3px;
+      background: #f1c40f;
+      margin: 10px auto 40px;
+      border-radius: 2px;
+      border: none;
+    }
+
+    .about {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      color: #cccccc;
+    }
+
+    .about p {
+      font-size: 18px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .social-media { grid-template-columns: repeat(3, 1fr); }
+    .food-posters { grid-template-columns: repeat(5, 1fr); }
+    .logo { grid-template-columns: 1fr; }
+    .magazine { grid-template-columns: repeat(3, 1fr); }
+    .branding { grid-template-columns: repeat(4, 1fr); }
+
+    .frame {
+      background: #1a1a1a;
+      border: 2px solid #f1c40f;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      width: 100%;
+      min-height: 30vh;
+    }
+
+    .logo .frame {
+      min-height: 20vh;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .frame:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(241, 196, 15, 0.7);
+    }
+
+    .frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    footer {
+      background: #0f0f0f;
+      text-align: center;
+      padding: 30px 20px;
+      border-top: 2px solid #f1c40f;
+    }
+
+    footer p {
+      margin-bottom: 10px;
+      color: #cccccc;
+    }
+
+    .social-links a {
+      margin: 0 10px;
+      color: #ffffff;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: #f1c40f;
+    }
+
+    /* Responsive Grids */
+    @media (max-width: 1024px) {
+      .food-posters { grid-template-columns: repeat(3, 1fr); }
+      .branding { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .social-media,
+      .food-posters,
+      .magazine,
+      .branding {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .hero h2 { font-size: 28px; }
+    }
+
+    @media (max-width: 480px) {
+      .social-media,
+      .food-posters,
+      .magazine,
+      .branding {
+        grid-template-columns: 1fr;
+      }
+      header h1 { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>Maliha Aamir Portfolio</h1>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#social-media">Social Media</a></li>
+        <li><a href="#branding">Branding</a></li>
+        <li><a href="#food-posters">Posters</a></li>
+        <li><a href="#logo">Logo</a></li>
+        <li><a href="#magazine">Magazine</a></li>
+        <li><a href="#footer">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="overlay"></div>
+    <h2>Hello, I'm Maliha Aamir</h2>
+    <p>A Graphic Designer dedicated to creating modern, minimal, and impactful visuals that inspire</p>
+    <a href="#about" class="btn">About Me ✨</a>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <h2>About Me</h2>
+    <hr class="divider">
+    <div class="about">
+      <p>I am a Bachelor’s student of Information Technology with a strong passion for graphic design. What started as curiosity has now become my chosen profession.</p>
+    </div>
+  </section>
+
+  <!-- Social Media -->
+  <section id="social-media">
+    <h2>Social Media Projects</h2>
+    <hr class="divider">
+    <div class="grid social-media">
+      <div class="frame"><img src="port img 1.png" alt=""></div>
+      <div class="frame"><img src="port-img-2.jpg" alt=""></div>
+      <div class="frame"><img src="port-img3.jpg" alt=""></div>
+    </div>
+  </section>
+
+  <!-- Posters -->
+  <section id="food-posters">
+    <h2>Posters</h2>
+    <hr class="divider">
+    <div class="grid food-posters">
+      <div class="frame"><img src="poster-img1_1.jpg" alt=""></div>
+      <div class="frame"><img src="poster-img2.jpg" alt=""></div>
+      <div class="frame"><img src="poster-img3.jpg" alt=""></div>
+      <div class="frame"><img src="poster-img4.jpg" alt=""></div>
+      <div class="frame"><img src="poster-img-5.jpg" alt=""></div>
+      <div class="frame"><img src="poster img6.png"></div>
+      <div class="frame"><img src="poster-img-7.jpg" alt=""></div>
+      <div class="frame"><img src="poster img8.png" alt=""></div>
+      <div class="frame"><img src="poster img9.png" alt=""></div>
+      <div class="frame"><img src="poster img10.png" alt=""></div>
+    </div>
+  </section>
+
+  <!-- Logo -->
+  <section id="logo">
+    <h2>Logo</h2>
+    <hr class="divider">
+    <div class="grid logo">
+      <div class="frame"><img src="logo img1.png" alt=""></div>
+    </div>
+  </section>
+
+  <!-- Magazine -->
+  <section id="magazine">
+    <h2>Magazine</h2>
+    <hr class="divider">
+    <div class="grid magazine">
+      <div class="frame"><img src="magzine img1.png" alt=""></div>
+      <div class="frame"><img src="magziine img2.png" alt=""></div>
+      <div class="frame"><img src="magzine img3.png" alt=""></div>
+    </div>
+  </section>
+
+  <!-- Branding -->
+  <section id="branding">
+    <h2>Branding Projects</h2>
+    <hr class="divider">
+    <div class="grid branding">
+      <div class="frame"><img src="hoarding mockup.jpg" alt=""></div>
+      <div class="frame"><img src="Invoice mockup.jpg" alt=""></div>
+      <div class="frame"><img src="flyer with mockup.jpg" alt=""></div>
+      <div class="frame"><img src="Trifold-Mockup-Out.jpg" alt=""></div>
+      <div class="frame"><img src="02-Trifold-Mockup-In mockup.jpg" alt=""></div>
+      <div class="frame"><img src="Magazine MockUp.jpg" alt=""></div>
+      <div class="frame"><img src="Men-Sweatshirt-Mockup.jpg" alt=""></div>
+      <div class="frame"><img src="standeeMockup.jpg" alt=""></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <p>© 2025 Maliha's Portfolio. All rights reserved.</p>
+    <div class="social-links">
+      <a href="https://www.instagram.com/malihaa_aamir18">Instagram</a>
+      <a href="https://www.behance.net/gallery/223702357/Eco-Grains">Behance</a>
+      <a href="www.linkedin.com/in/maliha-aamir-74167b355">LinkedIn</a>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.querySelector(".nav-links").classList.toggle("active");
+    }
+  </script>
+</body>
+</html>
